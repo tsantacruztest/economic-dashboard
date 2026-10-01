@@ -20,20 +20,24 @@ export default async function Home() {
 
       {/* HEADER */}
 
-      <div className="mb-12">
-        <h1 className="text-5xl font-extrabold text-slate-900">
-          🌍 Economic Dashboard
-        </h1>
+      <div className="mb-8 md:mb-12">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900">
+  🌍 Economic Dashboard
+</h1>
 
-        <p className="text-slate-500 text-lg mt-3">
-          Monitor economic indicators and trends for Argentina and Spain
-        </p>
+<p className="text-slate-600 font-medium text-base md:text-xl mt-2">
+  Argentina 🇦🇷 vs España 🇪🇸
+</p>
+
+<p className="text-slate-500 text-sm mt-2">
+  Updated: {formatDate(lastUpdate)}
+</p>
       </div>
       {/* OVERVIEW CARD */}
 
-<div className="mb-10 bg-white rounded-3xl shadow-lg border border-slate-200 p-8">
+<div className="mb-8 md:mb-10 bg-white rounded-3xl shadow-lg border border-slate-200 p-4 md:p-8">
 
-  <div className="flex items-center justify-between flex-wrap gap-6">
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
     <div>
       <h2 className="text-2xl font-bold text-slate-800">
@@ -86,21 +90,17 @@ export default async function Home() {
 
       {/* CARDS */}
 
-      <div className="grid xl:grid-cols-2 gap-8">
+      <div className="grid xl:grid-cols-2 gap-6 md:gap-8">
 
         {/* ARGENTINA */}
 
-        <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-200">
+        <div className="bg-white p-4 md:p-8 rounded-3xl shadow-lg border border-slate-200">
 
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-slate-800">
-              🇦🇷 Argentina
-            </h2>
-
-            <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
-              South America
-            </span>
-          </div>
+          <div className="mb-8">
+  <h2 className="text-2xl md:text-3xl font-bold text-slate-800">
+    🇦🇷 Argentina
+  </h2>
+</div>
 
           <div className="grid gap-4">
 
@@ -167,16 +167,14 @@ export default async function Home() {
 
         {/* ESPAÑA */}
 
-        <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-200">
+        <div className="bg-white p-4 md:p-8 rounded-3xl shadow-lg border border-slate-200">
 
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-slate-800">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-800">
               🇪🇸 España
             </h2>
 
-            <span className="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-medium">
-              Europe
-            </span>
+          
           </div>
 
           <div className="grid gap-4">
