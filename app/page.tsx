@@ -105,7 +105,7 @@ export default async function Home() {
           <div className="grid gap-4">
 
             <KPICard
-              title="Inflación-live"
+              title="IPC-live"
               value={`${argentina.inflation.value}%`}
               updated={formatDate(argentina.inflation.updated)}
               status="good"
@@ -152,7 +152,7 @@ export default async function Home() {
 
           <div className="mt-10 border-t border-slate-200 pt-6">
             <h3 className="text-lg font-bold text-slate-800 mb-4">
-              📈 Evolución de la Inflación
+              📈 Evolución del IPC
             </h3>
 
             <InflationChart
@@ -180,7 +180,7 @@ export default async function Home() {
           <div className="grid gap-4">
 
             <KPICard
-              title="IPC"
+              title="IPC-live"
               value={`${spain.inflation.value}%`}
                 updated={formatDate(spain.inflation.updated)}
 
@@ -196,7 +196,7 @@ export default async function Home() {
             />
 
             <KPICard
-              title="Paro"
+              title="Paro-live"
               value={`${spain.unemployment.value}%`}
                               updated={formatDate(spain.unemployment.updated)}
 
