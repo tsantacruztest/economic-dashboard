@@ -226,8 +226,9 @@ export default async function Home() {
               📈 Evolución del IPC
             </h3>
 
-            <SpainInflationChart />
-          </div>
+<SpainInflationChart
+  data={spain.inflation.chartData}
+/>          </div>
 
         </div>
 

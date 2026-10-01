@@ -10,27 +10,30 @@ import {
   CartesianGrid,
 } from "recharts";
 
-import { spainInflationHistory } from "../data/spainHistory";
+type Props = {
+  data: {
+    month: string;
+    value: number;
+  }[];
+};
 
-export default function SpainInflationChart() {
+export default function SpainInflationChart({ data }: Props) {
   const latestValue =
-    spainInflationHistory[
-      spainInflationHistory.length - 1
-    ]?.value ?? 0;
+    data[data.length - 1]?.value ?? 0;
 
   return (
     <div className="bg-white rounded-2xl shadow-sm p-4 md:p-6">
       <div className="mb-4 md:mb-6">
         <h3 className="text-lg md:text-2xl font-bold text-black">
-          🇪🇸 Evolución del IPC
+          🇪🇸 Inflación España
         </h3>
 
         <p className="text-gray-500 text-xs md:text-sm mt-1">
-          Historial de inflación en España
+          Variación mensual del IPC
         </p>
 
         <div className="mt-3 md:mt-4">
-          <span className="text-3xl md:text-4xl font-bold text-blue-600">
+          <span className="text-3xl md:text-4xl font-bold text-red-600">
             {latestValue}%
           </span>
         </div>
@@ -39,7 +42,7 @@ export default function SpainInflationChart() {
       <div className="h-[220px] md:h-[320px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            data={spainInflationHistory}
+            data={data}
             margin={{
               top: 10,
               right: 10,
@@ -87,17 +90,17 @@ export default function SpainInflationChart() {
             <Line
               type="monotone"
               dataKey="value"
-              stroke="#2563eb"
+              stroke="#dc2626"
               strokeWidth={3}
               dot={{
                 r: 3,
-                fill: "#2563eb",
+                fill: "#dc2626",
                 strokeWidth: 2,
                 stroke: "#ffffff",
               }}
               activeDot={{
                 r: 6,
-                fill: "#2563eb",
+                fill: "#dc2626",
               }}
             />
           </LineChart>

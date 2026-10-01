@@ -1,14 +1,13 @@
 import { getEuribor } from "./providers/euribor";
+import { getSpainInflation } from "./providers/spainInflation";
 
 export async function getSpainData() {
 
-  const euribor = await getEuribor();
+const euribor = await getEuribor();
+const inflation = await getSpainInflation();
 
   return {
-    inflation: {
-      value: 2.4,
-      updated: "2026-09-30",
-    },
+    inflation,
 
     gdp: {
       value: 1.8,
@@ -31,4 +30,3 @@ export async function getSpainData() {
     },
   };
 }
-``
