@@ -9,13 +9,38 @@ export async function getSpainInflation() {
     console.log(JSON.stringify(data[0], null, 2));
 
     const latestData = data[0].Data[0];
-    const chartData = data[0].Data
+    const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const chartData = data[0].Data
   .slice(0, 12)
   .reverse()
-  .map((item: any) => ({
-    month: item.T3_Periodo,
-    value: item.Valor,
-  }));
+  .map((item: any) => {
+    const date = new Date(item.Fecha);
+
+    const month =
+      months[date.getMonth()];
+
+    const year =
+      String(date.getFullYear()).slice(-2);
+
+    return {
+      month: `${month} ${year}`,
+      value: item.Valor,
+    };
+  });
 
    return {
   value: latestData.Valor,
