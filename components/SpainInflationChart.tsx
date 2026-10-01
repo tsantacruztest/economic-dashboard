@@ -13,62 +13,96 @@ import {
 import { spainInflationHistory } from "../data/spainHistory";
 
 export default function SpainInflationChart() {
+  const latestValue =
+    spainInflationHistory[
+      spainInflationHistory.length - 1
+    ]?.value ?? 0;
+
   return (
-    <div style={{ width: "100%", height: 320 }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          data={spainInflationHistory}
-          margin={{
-            top: 10,
-            right: 20,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid
-            strokeDasharray="3 3"
-            stroke="#e2e8f0"
-          />
+    <div className="bg-white rounded-2xl shadow-sm p-4 md:p-6">
+      <div className="mb-4 md:mb-6">
+        <h3 className="text-lg md:text-2xl font-bold text-black">
+          🇪🇸 Evolución del IPC
+        </h3>
 
-          <XAxis
-            dataKey="month"
-            tick={{ fill: "#64748b", fontSize: 12 }}
-            axisLine={false}
-            tickLine={false}
-          />
+        <p className="text-gray-500 text-xs md:text-sm mt-1">
+          Historial de inflación en España
+        </p>
 
-          <YAxis
-            tick={{ fill: "#64748b", fontSize: 12 }}
-            axisLine={false}
-            tickLine={false}
-          />
+        <div className="mt-3 md:mt-4">
+          <span className="text-3xl md:text-4xl font-bold text-blue-600">
+            {latestValue}%
+          </span>
+        </div>
+      </div>
 
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "#ffffff",
-              borderRadius: "12px",
-              border: "1px solid #e2e8f0",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+      <div className="h-[220px] md:h-[320px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
+            data={spainInflationHistory}
+            margin={{
+              top: 10,
+              right: 10,
+              left: 0,
+              bottom: 0,
             }}
-          />
+          >
+            <CartesianGrid
+              strokeDasharray="3 3"
+              opacity={0.25}
+            />
 
-          <Line
-            type="monotone"
-            dataKey="value"
-            stroke="#2563eb"
-            strokeWidth={4}
-            dot={{
-              r: 5,
-              fill: "#2563eb",
-              strokeWidth: 2,
-              stroke: "#ffffff",
-            }}
-            activeDot={{
-              r: 7,
-            }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+            <XAxis
+              dataKey="month"
+              tick={{
+                fill: "#000000",
+                fontSize: 10,
+              }}
+              axisLine={{ stroke: "#d1d5db" }}
+              tickLine={false}
+            />
+
+            <YAxis
+              tick={{
+                fill: "#000000",
+                fontSize: 10,
+              }}
+              axisLine={{ stroke: "#d1d5db" }}
+              tickLine={false}
+            />
+
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#ffffff",
+                border: "1px solid #e5e7eb",
+                borderRadius: "12px",
+                color: "#000000",
+              }}
+              formatter={(value) => [
+                `${value}%`,
+                "IPC",
+              ]}
+            />
+
+            <Line
+              type="monotone"
+              dataKey="value"
+              stroke="#2563eb"
+              strokeWidth={3}
+              dot={{
+                r: 3,
+                fill: "#2563eb",
+                strokeWidth: 2,
+                stroke: "#ffffff",
+              }}
+              activeDot={{
+                r: 6,
+                fill: "#2563eb",
+              }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
