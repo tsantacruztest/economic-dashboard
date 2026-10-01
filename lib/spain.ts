@@ -2,6 +2,7 @@ import { getEuribor } from "./providers/euribor";
 import { getSpainInflation } from "./providers/spainInflation";
 import { getSpainUnemployment } from "./providers/spainUnemployment";
 import { getSpainGdp } from "./providers/spainGdp";
+import { getEurArs } from "./providers/eurArs";
 
 export async function getSpainData() {
 
@@ -9,6 +10,8 @@ const euribor = await getEuribor();
 const inflation = await getSpainInflation();
 const unemployment = await getSpainUnemployment();
 const gdp = await getSpainGdp();
+const eurArs = await getEurArs();
+
 
   return {
     inflation,
@@ -28,6 +31,10 @@ const gdp = await getSpainGdp();
     salary: {
       value: 0.8,
       updated: "2026-09-10",
+    },
+    eurArs: {
+      ...eurArs,
+      value: Number(eurArs.value.toFixed(2)),
     },
   };
 }

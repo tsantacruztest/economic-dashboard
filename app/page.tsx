@@ -194,6 +194,13 @@ export default async function Home() {
 
               status="good"
             />
+            <KPICard
+              title="Salario Real"
+              value={`+${spain.salary.value}%`}
+                              updated={formatDate(spain.salary.updated)}
+
+              status="good"
+            />
 
             <KPICard
               title="Paro-live"
@@ -211,13 +218,13 @@ export default async function Home() {
               status="good"
             />
 
+            
             <KPICard
-              title="Salario Real"
-              value={`+${spain.salary.value}%`}
-                              updated={formatDate(spain.salary.updated)}
-
-              status="good"
-            />
+  title="EUR/ARS-live"
+  value={`$${spain.eurArs.value}`}
+  updated={formatDate(spain.eurArs.updated)}
+  status="good"
+/>
 
           </div>
 
