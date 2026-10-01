@@ -16,7 +16,7 @@ export default async function Home() {
 );
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 p-10">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 p-4 md:p-10">
 
       {/* HEADER */}
 

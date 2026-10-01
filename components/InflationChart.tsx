@@ -19,7 +19,8 @@ type Props = {
 
 export default function InflationChart({ data }: Props) {
   return (
-    <div style={{ width: "100%", height: 320 }}>
+    <div className="w-full h-[220px] md:h-[320px]">
+
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}
@@ -36,17 +37,17 @@ export default function InflationChart({ data }: Props) {
           />
 
           <XAxis
-            dataKey="month"
-            tick={{ fill: "#64748b", fontSize: 12 }}
-            axisLine={false}
-            tickLine={false}
-          />
+  dataKey="month"
+  tick={{ fill: "#64748b", fontSize: 10 }}
+  axisLine={false}
+  tickLine={false}
+/>
 
           <YAxis
-            tick={{ fill: "#64748b", fontSize: 12 }}
-            axisLine={false}
-            tickLine={false}
-          />
+  tick={{ fill: "#64748b", fontSize: 10 }}
+  axisLine={false}
+  tickLine={false}
+/>
 
           <Tooltip
             contentStyle={{
