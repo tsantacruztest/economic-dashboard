@@ -63,10 +63,10 @@ export default function UsdChart() {
                 borderRadius: "12px",
                 color: "#000000",
               }}
-              formatter={(value: number) => [
-                `$${value.toLocaleString("es-AR")}`,
-                "USD/ARS",
-              ]}
+             formatter={(value) => [
+  `$${Number(value).toLocaleString("es-AR")}`,
+  "USD/ARS",
+]}
             />
 
             <Line

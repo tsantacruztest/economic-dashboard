@@ -159,7 +159,6 @@ export default async function Home() {
   data={argentina.inflationChart}
 />
           </div>
-<InflationChart />
 
 <div className="mt-8">
   <UsdChart />
